@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <usertop v-if="!check_route" :userData="user_data"/>
+    <navbar v-if="!check_route" :userData="user_data"/>
+    <router-view :userData="user_data"></router-view>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import navbar from './components/Navigation'
+import usertop from './components/UserTop'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
-</script>
+    navbar, usertop
+  },
 
+  data: () => ({
+    user_data:{}
+  }),
+  methods:{
+    getUserData(){
+      if(this.$cookies.isKey('userData')){
+        this.user_data = this.$cookies.get('userData')
+        console.log(this.user_data)
+      }
+      else{
+        this.$router.replace({name:'login'})
+      }
+      
+    }
+  },
+  computed:{
+    check_route(){
+      return (this.$route.name === 'login' || this.$route.name==='check' || this.$route.name==='new_check')
+    }
+  },
+  mounted(){
+    this.getUserData()
+  }
+};
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .v-main{
+    padding-left: 320px!important;
+    padding-top: 150px!important;
+  }
 </style>
