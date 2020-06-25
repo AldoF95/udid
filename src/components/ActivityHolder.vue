@@ -1,15 +1,15 @@
 <template>
   <v-card class="activity-card">
-      <v-card-title>Ime aktivnosti</v-card-title>
+      <v-card-title>{{actionData.name}}</v-card-title>
       <v-divider></v-divider>
           <v-simple-table class="activity-table">
               <tr>
-                  <td><v-icon size="30">mdi-map-marker</v-icon>Lokacija</td>
-                  <td><v-icon size="30">mdi-clock-outline</v-icon>Vrijeme</td>
+                  <td><v-icon size="30">mdi-map-marker</v-icon>{{actionData.location}}</td>
+                  <td><v-icon size="30">mdi-clock-outline</v-icon>{{actionData.time}}</td>
               </tr>
               <tr>
                   <td><v-icon size="30">mdi-shape-outline</v-icon>Kategorija</td>
-                  <td><v-icon size="30">mdi-ethereum</v-icon>Vrijednost</td>
+                  <td><v-icon size="30">mdi-ethereum</v-icon>{{actionData.payment_amount}}</td>
               </tr>
           </v-simple-table>
 
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-
+    props:['actionData']
 }
 </script>
 

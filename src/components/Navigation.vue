@@ -27,7 +27,7 @@
           :to="item.name"
         >
           <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon :color="item.color">{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
@@ -52,10 +52,10 @@ export default {
   data () {
         return {
           items: [
-            { title: 'Početna', icon: 'mdi-home', name:'home'},
-            { title: 'Profil', icon: 'mdi-account', name:'profile' },
-            { title: 'Usluge', icon: 'mdi-dns', name:'services' },
-            { title: 'Kartice', icon: 'mdi-credit-card', name:'cards' },
+            { title: 'Početna', icon: 'mdi-home', color: '#58D68D', name:'home'},
+            { title: 'Profil', icon: 'mdi-account',color: '#3498DB', name:'profile' },
+            { title: 'Usluge', icon: 'mdi-dns',color: '#E74C3C', name:'services' },
+            { title: 'Kartice', icon: 'mdi-credit-card',color: '#34495E', name:'cards' },
             
           ],
         }

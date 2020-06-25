@@ -5,7 +5,7 @@
         <tr>
           <td>
             <v-list-item>
-            <v-list-item-avatar color="teal" size="50">
+            <v-list-item-avatar class="level-avatar" color="teal" size="50">
               <span class="white--text headline">
                 {{userData.level.toUpperCase().charAt(0)}}
               </span>
@@ -23,18 +23,21 @@
           </td>
         </tr>
       </v-simple-table>
-        
-       
+      <v-spacer/>
+      <span class="hash-account">{{account}}</span>
+       <v-spacer/>
     </v-toolbar>
   </v-card>
 </template>
 
 <script>
+import web3 from '../main'
 export default {
   props:['userData'],
   data:()=>({
     borderColorD: 'black!important',
-    borderColorA: 'black!important'
+    borderColorA: 'black!important',
+    account: ""
   }),
   methods:{
     showServices(){
@@ -58,10 +61,15 @@ export default {
         this.borderColorA = 'black!important'
         this.borderColorD = 'black!important'
       }
+    },
+    getAccount(){
+      this.account = web3.eth.accounts.givenProvider.selectedAddress;
+      console.log(this.account)
     }
   },
   mounted(){
     this.checkRoute()
+    this.getAccount()
   },
   updated(){
     this.checkRoute()
@@ -92,5 +100,16 @@ export default {
   border: none!important;
   border-bottom: solid 0.7px !important;
   margin: 0px 10px 0px 10px;
+}
+.hash-account{
+  font-size: 1.3em;
+  font-weight: 600;
+
+  padding: 25px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.level-avatar{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 </style>
