@@ -56,6 +56,7 @@ export default {
             { title: 'Profil', icon: 'mdi-account',color: '#3498DB', name:'profile' },
             { title: 'Usluge', icon: 'mdi-dns',color: '#E74C3C', name:'services' },
             { title: 'Kartice', icon: 'mdi-credit-card',color: '#34495E', name:'cards' },
+            { title: 'Simulacija', icon: 'mdi-link-box-outline',color: '#A569BD', name:'simulation' }
             
           ],
         }

@@ -8,6 +8,7 @@ import Login from './components/Login'
 import LoginCheck from './components/LoginCheck'
 import LoginNewKey from './components/LoginNewKey'
 import MyServices from './components/MyServices'
+import Simulation from './components/Simulator'
 
 Vue.use(Router)
 
@@ -59,6 +60,11 @@ const router = new Router({
             path:'/login/check/new',
             name: 'new_check',
             component: LoginNewKey
+        },
+        {
+            path:'/simulation',
+            name: 'simulation',
+            component: Simulation
         }
     ]
 })

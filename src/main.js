@@ -39,7 +39,8 @@ else{
 
 console.log(web3)
 export default web3;
-export const actionContract = new web3.eth.Contract(ActionContract.abi, '0xe98e57d3b6A0D90Bb39E5F26Ff56ce0Cfd7250F2');
+let contract_addres = '0x9123c1DDAb4cb8C26Faf6C46122431741867eAAa'
+export const actionContract = new web3.eth.Contract(ActionContract.abi, contract_addres);
 //var actionInstance = actionContract.at('0xe98e57d3b6A0D90Bb39E5F26Ff56ce0Cfd7250F2');
 
 new Vue({

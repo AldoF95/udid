@@ -16,23 +16,23 @@ export default {
   }),
   methods:{
     getAccountBalance(){
-      actionContract.methods.getBalance().call().then(balance =>{
+      /*actionContract.methods.getBalance().call().then(balance =>{
         console.log(balance);
-      });
+      });*/
 
-      /*actionContract.methods.setAction('0x5b111846218DdFeA9C8C6EeB158617A241e30c5D', 'name', 'location', 'time')
+      /*actionContract.methods.setAction('0x229991483832abc24f995BDAa865F7cF29CbA157', 'name', 'location', 'time')
         .send({
-          from: '0x255b719457c844dD7772C2d7322Bf2aC60C54a57',
+          from: '0x4C3126b20CDfd5e8b436BD0337Cce5743338cdd4',
           gas: 3000000,
-          value: '1000000000'})
+          value: '100000000'})
         .then(recipe =>{
           console.log(recipe);
-
-          actionContract.methods.getUserActions().call().then(responce =>{
-            console.log(responce.actionsList);
-            this.actions = responce.actionsList;
-          })
+          console.log('data write')
         })*/
+      actionContract.methods.getUserActions().call().then(responce =>{
+        this.actions = responce.actionsList;
+        console.log('data read')
+      })
       
     },
   },

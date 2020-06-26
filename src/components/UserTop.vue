@@ -64,7 +64,7 @@ export default {
     },
     getAccount(){
       this.account = web3.eth.accounts.givenProvider.selectedAddress;
-      console.log(this.account)
+
     }
   },
   mounted(){

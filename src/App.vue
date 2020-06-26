@@ -22,7 +22,6 @@ export default {
     getUserData(){
       if(this.$cookies.isKey('userData')){
         this.user_data = this.$cookies.get('userData')
-        console.log(this.user_data)
       }
       else{
         this.$router.replace({name:'login'})
