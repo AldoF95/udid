@@ -8,7 +8,7 @@
                   <td><v-icon size="30">mdi-clock-outline</v-icon>{{actionData.time}}</td>
               </tr>
               <tr>
-                  <td><v-icon size="30">mdi-shape-outline</v-icon>Kategorija</td>
+                  <td><v-icon size="30">mdi-shape-outline</v-icon>{{serviceName}}</td>
                   <td><v-icon size="30">mdi-ethereum</v-icon>{{displayEth}}</td>
               </tr>
           </v-simple-table>
@@ -22,7 +22,8 @@ export default {
     props:['actionData'],
     data:()=>({
         color: "",
-        displayEth: ""
+        displayEth: "",
+        serviceName: ""
     }),
     methods:{
         getService(){
@@ -33,6 +34,7 @@ export default {
                 snapshot.forEach(doc =>{
                     let color_string = doc.data().color +"!important"
                     this.color = color_string
+                    this.serviceName = doc.data().name
                 })
             })
         },
